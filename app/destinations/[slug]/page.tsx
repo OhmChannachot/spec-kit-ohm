@@ -5,11 +5,12 @@ import { destinations } from "@/data/destinations";
 import { DestinationDetail } from "@/components/domain/destination-detail";
 
 type PageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const destination = destinations.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const destination = destinations.find((item) => item.slug === slug);
 
   if (!destination) {
     return {
@@ -29,8 +30,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
   };
 }
 
-export default function DestinationDetailPage({ params }: PageProps) {
-  const destination = destinations.find((item) => item.slug === params.slug);
+export default async function DestinationDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const destination = destinations.find((item) => item.slug === slug);
 
   if (!destination) {
     notFound();
