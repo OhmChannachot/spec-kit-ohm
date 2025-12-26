@@ -2,13 +2,15 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Setup Codex
 Create file .codex/config.toml
+
 paste this:
 
+```bash
 [mcp_servers.context7]
 args = ["-y", "@upstash/context7-mcp", "--api-key", "API_KEY"]
 command = "npx"
 startup_timeout_ms = 20_000
-
+```
 
 ## Getting Started
 
