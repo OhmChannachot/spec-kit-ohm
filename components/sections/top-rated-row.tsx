@@ -27,11 +27,12 @@ export function TopRatedRow() {
           </Link>
         </div>
         <div className="mt-8 grid gap-4 lg:grid-cols-5">
-          {topRated.map((destination) => (
+          {topRated.map((destination, index) => (
             <Link
               key={destination.slug}
               href={`/destinations/${destination.slug}`}
-              className="group rounded-2xl border border-neutral-200 bg-white p-4 transition hover:shadow-lg"
+              className="group rounded-2xl border border-neutral-200 bg-white p-4 transition hover:shadow-lg animate-fade-up"
+              style={{ animationDelay: `${index * 80}ms` }}
             >
               <div className="relative h-32 w-full overflow-hidden rounded-xl">
                 <Image

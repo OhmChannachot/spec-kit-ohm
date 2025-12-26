@@ -1,5 +1,8 @@
 import type { Destination } from "@/lib/types";
 
+const pexels = (id: number) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1600`;
+
 export const destinations: Destination[] = [
   {
     slug: "kyoto-echoes",
@@ -20,7 +23,7 @@ export const destinations: Destination[] = [
         "Philosopher's Path at dusk",
       ],
     },
-    images: ["/images/placeholder-01.svg"],
+    images: [pexels(35323187)],
     publishedAt: "2025-02-12",
   },
   {
@@ -42,7 +45,7 @@ export const destinations: Destination[] = [
         "Limoncello tasting in Amalfi",
       ],
     },
-    images: ["/images/placeholder-02.svg"],
+    images: [pexels(32501472)],
     publishedAt: "2025-03-08",
   },
   {
@@ -64,7 +67,7 @@ export const destinations: Destination[] = [
         "Bo-Kaap color walk",
       ],
     },
-    images: ["/images/placeholder-03.svg"],
+    images: [pexels(32275918)],
     publishedAt: "2024-12-02",
   },
   {
@@ -86,7 +89,7 @@ export const destinations: Destination[] = [
         "Lakeside estancia stay",
       ],
     },
-    images: ["/images/placeholder-04.svg"],
+    images: [pexels(8109891)],
     publishedAt: "2024-11-14",
   },
   {
@@ -108,7 +111,7 @@ export const destinations: Destination[] = [
         "Sunset at Miradouro da Senhora do Monte",
       ],
     },
-    images: ["/images/placeholder-05.svg"],
+    images: [pexels(29743109)],
     publishedAt: "2025-01-20",
   },
   {
@@ -130,7 +133,7 @@ export const destinations: Destination[] = [
         "Skyline gondola at dusk",
       ],
     },
-    images: ["/images/placeholder-06.svg"],
+    images: [pexels(28970671)],
     publishedAt: "2024-10-05",
   },
   {
@@ -152,7 +155,7 @@ export const destinations: Destination[] = [
         "Atlas Mountains day trip",
       ],
     },
-    images: ["/images/placeholder-02.svg"],
+    images: [pexels(30243272)],
     publishedAt: "2024-09-22",
   },
   {
@@ -174,7 +177,7 @@ export const destinations: Destination[] = [
         "Rosario Islands escape",
       ],
     },
-    images: ["/images/placeholder-01.svg"],
+    images: [pexels(29285003)],
     publishedAt: "2024-08-18",
   },
   {
@@ -196,7 +199,7 @@ export const destinations: Destination[] = [
         "Night markets in Myeongdong",
       ],
     },
-    images: ["/images/placeholder-03.svg"],
+    images: [pexels(13679285)],
     publishedAt: "2025-02-01",
   },
   {
@@ -218,7 +221,7 @@ export const destinations: Destination[] = [
         "Harpa concert hall tour",
       ],
     },
-    images: ["/images/placeholder-04.svg"],
+    images: [pexels(31556862)],
     publishedAt: "2024-12-29",
   },
   {
@@ -240,7 +243,7 @@ export const destinations: Destination[] = [
         "Forsyth Park picnic",
       ],
     },
-    images: ["/images/placeholder-05.svg"],
+    images: [pexels(31096876)],
     publishedAt: "2024-07-01",
   },
   {
@@ -262,7 +265,7 @@ export const destinations: Destination[] = [
         "Water temple visit",
       ],
     },
-    images: ["/images/placeholder-06.svg"],
+    images: [pexels(2412711)],
     publishedAt: "2025-01-05",
   },
 ];

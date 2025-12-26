@@ -37,9 +37,12 @@ export function TrendingDestinations() {
         </Link>
       </div>
       <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {trending.map((destination) => (
+        {trending.map((destination, index) => (
           <Link key={destination.slug} href={`/destinations/${destination.slug}`}>
-            <Card className="group h-full overflow-hidden border-neutral-200 transition hover:-translate-y-1 hover:shadow-xl">
+            <Card
+              className="group h-full overflow-hidden border-neutral-200 transition hover:-translate-y-1 hover:shadow-xl animate-fade-up"
+              style={{ animationDelay: `${index * 90}ms` }}
+            >
               <div className="relative h-44 w-full overflow-hidden">
                 <Image
                   src={destination.images[0]}
