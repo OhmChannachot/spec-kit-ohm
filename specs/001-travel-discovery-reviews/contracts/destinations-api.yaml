@@ -1,0 +1,204 @@
+openapi: 3.0.3
+info:
+  title: Travel Discovery Client Data API (Mock)
+  version: 1.0.0
+  description: |
+    Client-side data access contract for destinations and reviews.
+    This API is a mock contract to describe local data interactions
+    in a frontend-only experience (no backend required).
+servers:
+  - url: http://localhost
+paths:
+  /api/destinations:
+    get:
+      summary: List destinations
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+          description: Search by destination name or country.
+        - in: query
+          name: region
+          schema:
+            type: string
+            enum: [Asia, Europe, Americas, Africa, Oceania]
+        - in: query
+          name: tags
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - in: query
+          name: sort
+          schema:
+            type: string
+            enum: [topRated, mostReviewed, newest]
+      responses:
+        "200":
+          description: Destination list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Destination"
+  /api/destinations/{slug}:
+    get:
+      summary: Get a destination by slug
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Destination detail
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Destination"
+        "404":
+          description: Destination not found
+  /api/reviews:
+    get:
+      summary: List reviews for a destination
+      parameters:
+        - in: query
+          name: destinationSlug
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Review list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Review"
+    post:
+      summary: Create a review for a destination
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReviewCreate"
+      responses:
+        "201":
+          description: Review created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Review"
+components:
+  schemas:
+    Destination:
+      type: object
+      required:
+        - slug
+        - name
+        - country
+        - region
+        - description
+        - tags
+        - ratingAverage
+        - reviewCount
+        - highlights
+        - images
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        country:
+          type: string
+        region:
+          type: string
+          enum: [Asia, Europe, Americas, Africa, Oceania]
+        description:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        ratingAverage:
+          type: number
+          minimum: 1
+          maximum: 5
+        reviewCount:
+          type: integer
+          minimum: 0
+        highlights:
+          type: object
+          required:
+            - bestTimeToVisit
+            - budgetLevel
+            - mustDo
+          properties:
+            bestTimeToVisit:
+              type: string
+            budgetLevel:
+              type: string
+            mustDo:
+              type: array
+              items:
+                type: string
+        images:
+          type: array
+          items:
+            type: string
+    Review:
+      type: object
+      required:
+        - id
+        - destinationSlug
+        - authorName
+        - rating
+        - title
+        - body
+        - createdAt
+      properties:
+        id:
+          type: string
+        destinationSlug:
+          type: string
+        authorName:
+          type: string
+        rating:
+          type: integer
+          minimum: 1
+          maximum: 5
+        title:
+          type: string
+        body:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+    ReviewCreate:
+      type: object
+      required:
+        - destinationSlug
+        - authorName
+        - rating
+        - title
+        - body
+      properties:
+        destinationSlug:
+          type: string
+        authorName:
+          type: string
+        rating:
+          type: integer
+          minimum: 1
+          maximum: 5
+        title:
+          type: string
+        body:
+          type: string

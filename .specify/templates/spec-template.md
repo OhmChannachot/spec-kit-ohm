@@ -5,6 +5,9 @@
 **Status**: Draft  
 **Input**: User description: "$ARGUMENTS"
 
+**Stack Constraints (Non-Negotiable)**: Next.js (latest stable) with App Router,
+TypeScript (strict), Tailwind CSS, shadcn/ui.
+
 ## User Scenarios & Testing *(mandatory)*
 
 <!--
@@ -83,6 +86,8 @@
 -->
 
 ### Functional Requirements
+
+Each requirement MUST map to at least one user story and acceptance scenario.
 
 - **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
 - **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  

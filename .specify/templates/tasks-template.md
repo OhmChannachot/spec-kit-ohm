@@ -17,6 +17,7 @@ description: "Task list template for feature implementation"
 - **[P]**: Can run in parallel (different files, no dependencies)
 - **[Story]**: Which user story this task belongs to (e.g., US1, US2, US3)
 - Include exact file paths in descriptions
+- Reference the story or requirement ID in the description when applicable
 
 ## Path Conventions
 
@@ -24,6 +25,8 @@ description: "Task list template for feature implementation"
 - **Web app**: `backend/src/`, `frontend/src/`
 - **Mobile**: `api/src/`, `ios/src/` or `android/src/`
 - Paths shown below assume single project - adjust based on plan.md structure
+- UI component layout: `components/ui` (shadcn primitives),
+  `components/sections`, `components/domain`
 
 <!-- 
   ============================================================================

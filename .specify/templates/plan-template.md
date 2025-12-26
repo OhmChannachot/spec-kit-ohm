@@ -17,10 +17,10 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
+**Language/Version**: TypeScript (strict)  
+**Primary Dependencies**: Next.js (latest stable, App Router), Tailwind CSS, shadcn/ui  
 **Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
+**Testing**: [e.g., Jest, Playwright, Vitest or NEEDS CLARIFICATION]  
 **Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
 **Project Type**: [single/web/mobile - determines source structure]  
 **Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
@@ -31,7 +31,21 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Stack matches Next.js (latest stable, App Router), TypeScript (strict),
+  Tailwind CSS, and shadcn/ui
+- MCP context7 is the source of truth for Next.js, Tailwind, and shadcn/ui
+- App Router is used; Pages Router is not used
+- shadcn/ui primitives are used for applicable UI elements and composed into
+  sections/domain components
+- Component layout follows `components/ui`, `components/sections`,
+  `components/domain`
+- Destination data uses local seed data; reviews persist via localStorage
+- Spec exists and uses the spec template with prioritized, independently
+  testable user stories
+- Requirements are testable and traceable to at least one user story
+- If tests are requested, test tasks are listed before implementation tasks
+- Tasks reference explicit file paths and story/requirement identifiers
+- Any complexity exceptions are justified in the Complexity Tracking section
 
 ## Project Structure
 
